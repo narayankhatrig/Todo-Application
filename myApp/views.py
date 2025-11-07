@@ -19,8 +19,21 @@ def add_todo(request):
         TodoModel.objects.create(title=request.POST["title"], details=request.POST["details"])
         return HttpResponseRedirect("/") #takes to homepage
     
+#update todos
+def update_todo(request, pk):
+    if request.method == "GET":
+        todo = TodoModel.objects.get(id=pk)
+        return render(request, "update_todo.html", {"todo": todo},)
+    else:
+        todo = TodoModel.objects.get(id=pk)
+        todo.title = request.POST["title"]
+        todo.details = request.POST["details"]
+        todo.save()
+        return HttpResponseRedirect("/") #home
+    
 #delete todos
 def delete_todo(request, pk):
     todo = TodoModel.objects.get(id=pk)
     todo.delete()
     return HttpResponseRedirect("/") #homepage
+

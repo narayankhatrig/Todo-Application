@@ -23,4 +23,5 @@ urlpatterns = [
     path("", views.view_todo, name="view_todo"),
     path("add/", views.add_todo, name="add_todo"),
     path("delete/<int:pk>/", views.delete_todo, name="delete_todo"),
+    path("update/<int:pk>/", views.update_todo, name="update_todo"),
 ]
