@@ -21,4 +21,6 @@ from myApp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", views.view_todo, name="view_todo"),
+    path("add/", views.add_todo, name="add_todo"),
+    path("delete/<int:pk>/", views.delete_todo, name="delete_todo"),
 ]
