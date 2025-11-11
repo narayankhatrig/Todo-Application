@@ -23,7 +23,7 @@ def add_todo(request):
 def update_todo(request, pk):
     if request.method == "GET":
         todo = TodoModel.objects.get(id=pk)
-        return render(request, "update_todo.html", {"todo": todo},)
+        return render(request, "css/update_todo.html", {"todo": todo},)
     else:
         todo = TodoModel.objects.get(id=pk)
         todo.title = request.POST["title"]
